@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Iot</string>
+    <string name="action_toado">Tọa độ</string>
+    <string name="navigation_header">Navigation header</string>
+    <string name="main_drawer_open">Opendrawer</string>
+    <string name="main_drawer_close">Drawer Close</string>
+    <string name="title_activity_maps">Map</string>
+</resources>

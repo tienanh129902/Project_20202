@@ -21,24 +21,20 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.8.0
 Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
-E:\STM32\Project_20202\project\Firmware\MDK-ARM\project.uvprojx
+E:\STM32\Project_20202\Firmware\MDK-ARM\project.uvprojx
 Project File Date:  06/08/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'project'
-compiling Sim800L.c...
+compiling main.c...
 ../Core/Inc/Sim800L.h(68): warning:  #1-D: last line of file ends without a newline
   #endif /* __SIM800L_H__ */
-..\Core\Src\Sim800L.c(21): warning:  #68-D: integer conversion resulted in a change of sign
-  	hsms.sms_inited=-1;
-..\Core\Src\Sim800L.c(20): warning:  #177-D: variable "data_in"  was declared but never referenced
-  	char data_in[SIMCOM_DATA_IN_MAX_SIZE];
-..\Core\Src\Sim800L.c: 3 warnings, 0 errors
+../Core/Src/main.c: 1 warning, 0 errors
 linking...
 Program Size: Code=17188 RO-data=824 RW-data=48 ZI-data=2744  
 FromELF: creating hex file...
-"project\project.axf" - 0 Error(s), 3 Warning(s).
+"project\project.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -62,7 +58,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.4.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

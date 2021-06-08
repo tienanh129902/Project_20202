@@ -124,7 +124,7 @@ int main(void)
 				 GPS_Process();
 				 lat = GPS.GPGGA.LatitudeDecimal;
 				 lng = GPS.GPGGA.LongitudeDecimal;
-				 sprintf(http_buffer,"{\"user\":\"FxFwEQEA8PceiFOOQ30YubmPMRLcmjHzvo9Ic0Az\",\"latitude\":\"%f\",\"longtitude\":\"%f\",\"time\":\"\%d:%d:%d\"}\r\n",
+				 sprintf(http_buffer,"{\"user\":\"FxFwEQEA8PceiFOOQ30YubmPMRLcmjHzvo9Ic0Az\",\"latitude\":\"%f\",\"longtitude\":\"%f\",\"time\":\"%d:%d:%d\"}\r\n",
 				 GPS.GPGGA.LatitudeDecimal,GPS.GPGGA.LongitudeDecimal,GPS.GPGGA.VN_hour,GPS.GPGGA.UTC_Min,GPS.GPGGA.UTC_Sec);
 				 if(Sim_HTTP_Post(http_buffer))
 				 {

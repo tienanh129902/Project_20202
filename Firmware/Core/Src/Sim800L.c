@@ -155,12 +155,12 @@ int8_t Sim_init(void)
 		}
 	}
 ////////////////////////////////////////////////////////
-	hsimcom.retry = RETRY_NUM;
-	if (Sim_SendCommand("AT+CMGF=1\r\n","OK",3000) == 1)
-	{
-		hsms.sms_inited = 1;   
-		//return;
-	}
+//	hsimcom.retry = RETRY_NUM;
+//	if (Sim_SendCommand("AT+CMGF=1\r\n","OK",3000) == 1)
+//	{
+//		hsms.sms_inited = 1;   
+//		//return;
+//	}
 ///////Set Echo Mode
 //	hsimcom.retry = RETRY_NUM;
 //		if (Sim_SendCommand("ATE0\r\n","OK",3000) ==1)
@@ -249,7 +249,7 @@ int8_t Sim_HTTP_Post(char * s)
 		// return 1;
 	}
 	hsimcom.retry = RETRY_NUM;
-		if (Sim_SendCommand("AT+HTTPPARA=\"URL\",\"https://testing-dbbc2-default-rtdb.firebaseio.com/.json\"\r\n","OK",3000) ==1) //connect API
+		if (Sim_SendCommand("AT+HTTPPARA=\"URL\",\"https://testing-dbbc2-default-rtdb.firebaseio.com/CurLoc.json?x-http-method-override=PATCH\"\r\n","OK",3000) ==1) //connect API
 	{
 		hgprs.http_simcom_inited = 3;
 		// return 1;
@@ -258,7 +258,12 @@ int8_t Sim_HTTP_Post(char * s)
 		if (Sim_SendCommand("AT+HTTPPARA=\"CONTENT\",\"application/json\"\r\n","OK",3000) ==1) //connect API
 	{
 		hgprs.http_simcom_inited = 4;
-//		// return 1;
+		// return 1;
+	}
+	if (Sim_SendCommand("AT+HTTPSSL = 1\r\n","OK",3000) ==1) //init https
+	{
+		hgprs.http_simcom_inited = 5;
+		// return 1;
 	}
 	for (uint8_t i=0; i<4;i++)
 	{
@@ -279,7 +284,7 @@ int8_t Sim_HTTP_Post(char * s)
 				hsimcom.retry =1;
 			 if (	Sim_SendCommand("AT+HTTPACTION=1\r\n","200",20000) ==1)
 			 {
-		// if (DEBUG) { ShowTEST("200");HAL_Delay(10000); }
+				 // if (DEBUG) { ShowTEST("200");HAL_Delay(10000); }
 				 hgprs.http_simcom_post =1;		
 				 HAL_Delay(3000);
 				 //simcom_puts("AT+HTTPREAD\r\n");

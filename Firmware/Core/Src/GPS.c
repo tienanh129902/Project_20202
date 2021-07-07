@@ -31,6 +31,7 @@ void	GPS_Init(void)
 void	GPS_CallBack(void)
 {
 	GPS.LastTime=HAL_GetTick();
+	
 	if(GPS.rxIndex < sizeof(GPS.rxBuffer)-2)
 	{
 		GPS.rxBuffer[GPS.rxIndex] = GPS.rxTmp;

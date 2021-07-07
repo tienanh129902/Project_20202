@@ -117,16 +117,16 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-		if(Sim_init())
+		if(Sim_init()==1)
 		{
-			 if(Sim_Bearer_Configure())
+			 if(Sim_Bearer_Configure()==1)
 			 {			 
 				 GPS_Process();
 				 lat = GPS.GPGGA.LatitudeDecimal;
 				 lng = GPS.GPGGA.LongitudeDecimal;
-				 sprintf(http_buffer,"{\"user\":\"FxFwEQEA8PceiFOOQ30YubmPMRLcmjHzvo9Ic0Az\",\"latitude\":\"%f\",\"longtitude\":\"%f\",\"time\":\"%d:%d:%d\"}\r\n",
+				 sprintf(http_buffer,"{\"lat\":\"%f\",\"lng\":\"%f\",\"time\":\"%d:%d:%d\",\"user\":\"FxFwEQEA8PceiFOOQ30YubmPMRLcmjHzvo9Ic0Az\"}\r\n",
 				 GPS.GPGGA.LatitudeDecimal,GPS.GPGGA.LongitudeDecimal,GPS.GPGGA.VN_hour,GPS.GPGGA.UTC_Min,GPS.GPGGA.UTC_Sec);
-				 if(Sim_HTTP_Post(http_buffer))
+				 if(Sim_HTTP_Post(http_buffer)==1)
 				 {
 					 Sim_HTTPTERM();
 				 }
